@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: Person Service
+  description: |
+    Just a sample API of the person service.
+  version: 1.0.0
+
+servers:
+  - url: '{schema}://{host}:{port}{baseUri}'
+    description: |
+      Person Server
+    variables:
+      schema:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        default: localhost
+      port:
+        default: '8080'
+      baseUri:
+        default: '/api/v1'
+
+tags:
+  - name: Person
+
+paths:
+  /persons:
+    get:
+      summary: Get all persons
+      operationId: getAllPersons
+      tags:
+        - Person
+      responses:
+        200:
+          description: OK, result successfully returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonDto'
+
+components:
+  schemas:
+    PersonDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the person
+          example: 1
+        givenName:
+          type: string
+          description: Given name of the person
+          example: John
+        familyName:
+          type: string
+          description: Family name of the person
+          example: Doe
