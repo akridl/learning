@@ -92,8 +92,7 @@
                                 <configPackage>${openapi-base-package}.config</configPackage>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <useTags>true</useTags>
-                                <delegatePattern>true</delegatePattern>
-                                <!-- <interfaceOnly>true</interfaceOnly> -->
+                                <interfaceOnly>true</interfaceOnly>
                             </configOptions>
                         </configuration>
                     </execution>

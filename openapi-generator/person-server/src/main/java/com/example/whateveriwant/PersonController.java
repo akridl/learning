@@ -1,13 +1,14 @@
-package com.example.generated.server.rest;
+package com.example.whateveriwant;
 
 import com.example.generated.server.model.PersonDto;
+import com.example.generated.server.rest.PersonApi;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-public class PersonController implements PersonApiDelegate {
+public class PersonController implements PersonApi {
 
     @Override
     public ResponseEntity<List<PersonDto>> getAllPersons() {

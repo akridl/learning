@@ -1,4 +1,4 @@
-package com.example.generated.server.rest;
+package com.example.whateveriwant;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
