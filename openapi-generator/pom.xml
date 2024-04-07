@@ -18,6 +18,7 @@
 
     <modules>
         <module>person-server</module>
+        <module>person-client</module>
     </modules>
 
     <name>openapi-generator</name>
