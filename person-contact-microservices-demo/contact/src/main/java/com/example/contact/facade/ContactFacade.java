@@ -1,9 +1,11 @@
 package com.example.contact.facade;
 
 import com.example.contact.api.dto.ContactDto;
-import com.example.contact.api.dto.ContactEditDto;
+import com.example.contact.api.dto.ContactRef;
 import com.example.contact.mapper.ContactMapper;
 import com.example.contact.service.ContactService;
+import com.example.contact.validation.ContactValidator;
+import com.example.validation.WhenCreating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +27,8 @@ public class ContactFacade {
         this.contactMapper = contactMapper;
     }
 
-    public ContactDto createContact(ContactEditDto contactEditDto) {
+    public ContactDto createContact(ContactRef contactEditDto) {
+        ContactValidator.validateContact(contactEditDto, WhenCreating.class);
         return contactMapper.toDto(contactService.createContact(contactMapper.toEntity(contactEditDto)));
     }
 

@@ -18,9 +18,9 @@ import java.time.LocalDate;
 @NonFinal
 @SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-@Schema(description = "Person DTO intended to be used as a reference from another DTOs.")
 @Jacksonized
 @Validated
+@Schema(description = "Person DTO intended to be used as a reference from another DTOs.")
 public class PersonRef extends GenericEntityDto {
 
     @NotBlank

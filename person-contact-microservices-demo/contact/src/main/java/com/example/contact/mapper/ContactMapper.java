@@ -1,19 +1,17 @@
 package com.example.contact.mapper;
 
 import com.example.contact.api.dto.ContactDto;
-import com.example.contact.api.dto.ContactEditDto;
+import com.example.contact.api.dto.ContactRef;
 import com.example.contact.data.model.Contact;
+import com.example.mapper.CentralMapperConfig;
 import com.example.mapper.IdMapper;
 import com.example.mapper.LongIdMapper;
-import com.example.mapper.CentralMapperConfig;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(config = CentralMapperConfig.class)
 public interface ContactMapper {
 
-    @Mapping(target = "id", ignore = true)
-    Contact toEntity(ContactEditDto contactDto);
+    Contact toEntity(ContactRef contactDto);
 
     ContactDto toDto(Contact contactEntity);
 

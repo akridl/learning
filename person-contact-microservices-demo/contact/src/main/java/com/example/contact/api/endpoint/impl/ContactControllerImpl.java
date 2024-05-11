@@ -1,7 +1,7 @@
 package com.example.contact.api.endpoint.impl;
 
 import com.example.contact.api.dto.ContactDto;
-import com.example.contact.api.dto.ContactEditDto;
+import com.example.contact.api.dto.ContactRef;
 import com.example.contact.api.endpoint.ContactController;
 import com.example.contact.facade.ContactFacade;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class ContactControllerImpl implements ContactController {
     }
 
     @Override
-    public ResponseEntity<ContactDto> createContact(ContactEditDto createContactDto) {
+    public ResponseEntity<ContactDto> createContact(ContactRef createContactDto) {
         return new ResponseEntity<>(contactFacade.createContact(createContactDto), HttpStatus.CREATED);
     }
 

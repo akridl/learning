@@ -16,7 +16,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ContactEditDto'
+              $ref: '#/components/schemas/ContactRef'
         required: true
       responses:
         "201":
@@ -63,10 +63,13 @@ components:
     ContactDto:
       required:
         - contact
-        - id
         - type
       type: object
       properties:
+        id:
+          type: string
+          description: ID of the contact
+          example: "1"
         type:
           type: string
           description: Type of the contact
@@ -78,17 +81,17 @@ components:
           type: string
           description: Contact itself
           example: john.doe@example.com
-        id:
-          type: string
-          description: ID of the contact
-          example: "1"
       description: Contact DTO used when returning to the client.
-    ContactEditDto:
+    ContactRef:
       required:
         - contact
         - type
       type: object
       properties:
+        id:
+          type: string
+          description: ID of the contact
+          example: "1"
         type:
           type: string
           description: Type of the contact
@@ -100,4 +103,4 @@ components:
           type: string
           description: Contact itself
           example: john.doe@example.com
-      description: Contact DTO used when creating / updating the resource.
+      description: Contact DTO intended to be used as a reference from another DTOs.

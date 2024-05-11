@@ -24,7 +24,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PersonRef'
+                $ref: '#/components/schemas/PersonDto'
   /persons/{id}:
     get:
       tags:
@@ -43,7 +43,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PersonRef'
+                $ref: '#/components/schemas/PersonDto'
     delete:
       tags:
         - Person
@@ -60,6 +60,36 @@ paths:
           description: Person successfully deleted
 components:
   schemas:
+    PersonDto:
+      required:
+        - birthday
+        - email
+        - familyName
+        - givenName
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the entity
+          example: "1"
+        givenName:
+          type: string
+          description: Person's given name
+          example: John
+        familyName:
+          type: string
+          description: Person's family name
+          example: Doe
+        email:
+          type: string
+          description: Person's email
+          example: john.doe@example.com
+        birthday:
+          type: string
+          description: Person's birthday
+          format: date
+          example: 2002-02-02
+      description: Person DTO used when returning to the client.
     PersonRef:
       required:
         - birthday
@@ -70,6 +100,8 @@ components:
       properties:
         id:
           type: string
+          description: ID of the entity
+          example: "1"
         givenName:
           type: string
           description: Person's given name

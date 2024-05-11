@@ -35,6 +35,18 @@ public class GlobalExceptionHandling {
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
+    @ExceptionHandler({ ContactAlreadyPresentException.class })
+    public ResponseEntity<ApiError> handleContactPresentException(ContactAlreadyPresentException ex, HttpServletRequest request) {
+        ApiError apiError = createApiError(HttpStatus.CONFLICT, ex, request);
+        return new ResponseEntity<>(apiError, apiError.getStatus());
+    }
+
+    @ExceptionHandler({ NoSuchContactException.class })
+    public ResponseEntity<ApiError> handleNoSuchContactException(NoSuchContactException ex, HttpServletRequest request) {
+        ApiError apiError = createApiError(HttpStatus.NOT_FOUND, ex, request);
+        return new ResponseEntity<>(apiError, apiError.getStatus());
+    }
+
     @ExceptionHandler({Exception.class})
     public ResponseEntity<ApiError> handleAll(Exception ex, HttpServletRequest request) {
         ApiError apiError = createApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex, request);

@@ -1,7 +1,7 @@
 package com.example.contact.api.endpoint;
 
 import com.example.contact.api.dto.ContactDto;
-import com.example.contact.api.dto.ContactEditDto;
+import com.example.contact.api.dto.ContactRef;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,7 +35,7 @@ public interface ContactController {
                     )
             }
     )
-    ResponseEntity<ContactDto> createContact(@Valid @RequestBody ContactEditDto createContactDto);
+    ResponseEntity<ContactDto> createContact(@Valid @RequestBody ContactRef createContactDto);
 
     @GetMapping(path = "/{id}")
     @Operation(

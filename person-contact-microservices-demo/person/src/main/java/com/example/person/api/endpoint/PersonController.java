@@ -31,20 +31,20 @@ public interface PersonController {
                @ApiResponse(
                        description = "Person successfully created",
                        responseCode = "201",
-                       content = @Content(schema = @Schema(implementation = PersonRef.class))
+                       content = @Content(schema = @Schema(implementation = PersonDto.class))
                )
             }
     )
     ResponseEntity<PersonDto> createPerson(@Valid @RequestBody PersonRef createPersonDto);
 
-    @GetMapping(path = "/{id}", consumes = MediaType.TEXT_PLAIN_VALUE)
+    @GetMapping(path = "/{id}")
     @Operation(
             summary = "Get person by ID",
             responses = {
                     @ApiResponse(
                             description = "Person successfully returned",
                             responseCode = "200",
-                            content = @Content(schema = @Schema(implementation = PersonRef.class))
+                            content = @Content(schema = @Schema(implementation = PersonDto.class))
                     )
             }
     )
@@ -61,4 +61,28 @@ public interface PersonController {
             }
     )
     ResponseEntity<Void> deletePersonById(@PathVariable String id);
+
+    @PostMapping("/{id}/assign-contact/{contactId}")
+    @Operation(
+            summary = "Assign contact to the person",
+            responses = {
+                    @ApiResponse(
+                            description = "Contact successfully assigned",
+                            responseCode = "200"
+                    )
+            }
+    )
+    ResponseEntity<PersonDto> assignContact(@PathVariable String id, @PathVariable String contactId);
+
+    @DeleteMapping("/{id}/assign-contact/{contactId}")
+    @Operation(
+            summary = "Unassign contact from the person",
+            responses = {
+                    @ApiResponse(
+                            description = "Contact successfully unassigned",
+                            responseCode = "200"
+                    )
+            }
+    )
+    ResponseEntity<PersonDto> unassignContact(@PathVariable String id, @PathVariable String contactId);
 }

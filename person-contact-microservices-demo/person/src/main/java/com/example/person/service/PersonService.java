@@ -35,6 +35,18 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
+    public Person assignContact(Long id, Long contactId) {
+        Person person = getPersonById(id);
+        person.addContact(contactId);
+        return personRepository.save(person);
+    }
+
+    public Person unassignContact(Long id, Long contactId) {
+        Person person = getPersonById(id);
+        person.removeContact(contactId);
+        return personRepository.save(person);
+    }
+
     private static ResourceNotFoundException createNotFoundException(Long id) {
         return new ResourceNotFoundException("Person with id=" + id + " not found.");
     }
