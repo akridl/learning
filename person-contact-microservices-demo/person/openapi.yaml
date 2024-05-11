@@ -1,0 +1,90 @@
+openapi: 3.0.1
+info:
+  title: Person API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Generated server url
+paths:
+  /persons:
+    post:
+      tags:
+        - Person
+      summary: Create new person
+      operationId: createPerson
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonRef'
+        required: true
+      responses:
+        "201":
+          description: Person successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonRef'
+  /persons/{id}:
+    get:
+      tags:
+        - Person
+      summary: Get person by ID
+      operationId: getPersonById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Person successfully returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonRef'
+    delete:
+      tags:
+        - Person
+      summary: Delete person by ID
+      operationId: deletePersonById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Person successfully deleted
+components:
+  schemas:
+    PersonRef:
+      required:
+        - birthday
+        - email
+        - familyName
+        - givenName
+      type: object
+      properties:
+        id:
+          type: string
+        givenName:
+          type: string
+          description: Person's given name
+          example: John
+        familyName:
+          type: string
+          description: Person's family name
+          example: Doe
+        email:
+          type: string
+          description: Person's email
+          example: john.doe@example.com
+        birthday:
+          type: string
+          description: Person's birthday
+          format: date
+          example: 2002-02-02
+      description: Person DTO intended to be used as a reference from another DTOs.
