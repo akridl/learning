@@ -15,6 +15,7 @@
         <module>person-server</module>
         <module>person-client-openapi</module>
         <module>person-client-resttemplate</module>
+        <module>person-client-restclient</module>
     </modules>
 
     <groupId>com.example</groupId>
