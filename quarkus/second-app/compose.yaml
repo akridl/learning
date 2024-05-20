@@ -1,0 +1,23 @@
+---
+version: '3.8'
+
+services:
+  db:
+    container_name: second-quarkus-app-postgres
+    image: postgres:15.4
+    volumes:
+      - db-volume:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    networks:
+      app-network:
+    ports:
+      - '5432:5432'
+
+volumes:
+  db-volume:
+
+networks:
+  app-network:
