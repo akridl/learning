@@ -1,0 +1,12 @@
+quarkus:
+  http:
+    port: 8088
+
+greeting:
+  message: hello
+  name: quarkus
+
+"%test":
+  greeting:
+    message: hi
+    name: test
