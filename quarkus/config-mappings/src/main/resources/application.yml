@@ -1,0 +1,46 @@
+my-config:
+  greeting:
+    # We do not need to specify this, since it has got a (reasonable) default in the MyConfig
+    # greet: Hi
+
+    # We have to always specify this config property, since it is required
+    name: quarkus
+
+    # Smallreye Config API nicely handles both wrong cases:
+    # 1) We forget to define config property from MyConfig interface (we can get rid of this by using defaults)
+    # 2) We define some extra config property, which is not present in the MyConfig interface
+    # Both of these cases result in an exception.
+    # unknown: value
+
+  # Not named 'super-cool-stuff' (as default), since MyConfig#superCoolStuff has @WithName("stuff")
+  stuff: Wohooo
+
+  version: 1.2.42
+  developers:
+    - name: 'John Doe'
+      email: johndoe@example.com
+    - name: 'Jane Doe'
+      email: janedoe@acme.org
+
+  numbers:
+    int: 42
+    long: 9123456789
+    float: 4.2
+
+  environment:
+    # Map mapping
+
+    # But here, the key is not required, because of @WithUnnamedKey("default")
+    # So basically the following holds:
+    # environment:
+    #   default: (because @WithUnnamedKey)
+    #     url: localhost (because @WithDefaults on EnvironmentConfig, together with @WithDefault 'localhost' at url)
+    #     pods-active: 81
+    pods-active: 81
+
+    dev:
+      url: https://example.dev.com
+      pods-active: 42
+    prod:
+      url: https://example.prod.com
+      pods-active: 37
