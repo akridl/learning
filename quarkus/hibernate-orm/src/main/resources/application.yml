@@ -3,53 +3,56 @@ quarkus:
     path: '/api/v1'
   http:
     port: 8089
+  config:
+    profile:
+      parent: common
   datasource:
+    # In case, we are using Postgre in the persistence.xml as the default datasource.
+    # db-kind: postgresql
+    # jdbc:
+    #   url: jdbc:postgresql://localhost:5432/db
+    # username: postgres
+    # password: postgres
+
+    # In case, we are using H2 in the persistence.xml as the default datasource.
+    # db-kind: h2
+    # jdbc:
+    #  url: jdbc:h2:mem:h2;DB_CLOSE_DELAY=-1
+
     "h2":
-      active: false
       db-kind: h2
       jdbc:
         url: jdbc:h2:mem:h2;DB_CLOSE_DELAY=-1
     "pg":
-      active: false
       db-kind: postgresql
       jdbc:
         url: jdbc:postgresql://localhost:5432/db
       username: postgres
       password: postgres
   hibernate-orm:
+    persistence-xml:
+      ignore: true
     "h2":
-      active: false
-      database:
-        generation: 'drop-and-create'
       datasource: h2
-      packages: com.example.model
+      sql-load-script: no-file
     "pg":
-      active: false
-      database:
-        generation: 'drop-and-create'
       datasource: pg
-      packages: com.example.model
       sql-load-script: import-postgres.sql
-#  profile: pg
 
-"%dev":
-  # When running in development mode (e.g. after running 'quarkus dev'), use H2 in-memory DB
+"%common":
   quarkus:
-    datasource:
-      "h2":
-        active: true
     hibernate-orm:
       "h2":
-        active: true
-
-"%pg":
-  quarkus:
-    datasource:
+        database:
+          generation: drop-and-create
+        packages: com.example.model
       "pg":
-        active: true
-    hibernate-orm:
-      "pg":
-        active: true
+        database:
+          generation: drop-and-create
+        packages: com.example.model
 
 my-config:
-  persistence-unit-name: h2
+  persistence-unit:
+    available:
+      - h2
+      - pg

@@ -1,0 +1,65 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <!--
+        ** IMPORTANT **
+
+        When using this persistence.xml to configure persistence, do not remember to comment out all the corresponding
+        properties in application.yml (quarkus.hibernate-orm.*).
+    -->
+
+    <persistence-unit name="h2" transaction-type="JTA">
+        <description>PU for H2 in-memory DB</description>
+
+    <!--
+        Since Quarkus doesn't seem to be supporting specifying of data source this way, one has to use default datasource.
+        So do not remember to specify quarkus.datasource in the application.yml accordingly.
+        <jta-data-source>h2</jta-data-source>
+    -->
+
+        <class>com.example.model.Greeting</class>
+        <class>com.example.model.Person</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.validation.mode" value="NONE"/>
+
+            <property name="jakarta.persistence.sql-load-script-source" value="import-postgres.sql"/>
+            <!-- Change value on the following line to drop-and-create when you want to make this PU active -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="pg" transaction-type="JTA">
+        <description>PU for Postgre DB</description>
+
+        <!--
+            Since Quarkus doesn't seem to be supporting specifying of data source this way, one has to use default datasource.
+            So do not remember to specify quarkus.datasource in the application.yml accordingly.
+            <jta-data-source>pg</jta-data-source>
+        -->
+
+        <class>com.example.model.Greeting</class>
+        <class>com.example.model.Person</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db"/>
+            <property name="jakarta.persistence.validation.mode" value="NONE"/>
+
+            <property name="jakarta.persistence.sql-load-script-source" value="import-postgres.sql"/>
+            <!-- Change value on the following line to none when you want to make this PU inactive -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+        </properties>
+    </persistence-unit>
+</persistence>
