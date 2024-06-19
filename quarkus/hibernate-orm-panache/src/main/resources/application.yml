@@ -10,7 +10,7 @@ quarkus:
         jdbc:postgresql://localhost:5432/db
   hibernate-orm:
     database:
-      generation: drop-and-create
+      generation: validate
 
 "%dev":
   quarkus:

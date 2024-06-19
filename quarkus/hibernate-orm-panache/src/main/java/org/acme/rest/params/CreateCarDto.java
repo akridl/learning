@@ -1,4 +1,4 @@
-package org.acme.rest;
+package org.acme.rest.params;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

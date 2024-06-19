@@ -7,6 +7,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import org.acme.model.Car;
 import org.acme.repository.CarRepository;
+import org.acme.rest.params.CreateCarDto;
 
 import java.util.List;
 
