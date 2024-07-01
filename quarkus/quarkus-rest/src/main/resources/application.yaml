@@ -1,0 +1,11 @@
+#quarkus:
+#  http:
+#    root-path: /api/v1
+quarkus:
+  log:
+    category:
+      "org.jboss.resteasy.reactive.server.handlers":
+        level: DEBUG
+my-config:
+  person:
+    default-name: Doe
