@@ -1,0 +1,16 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: ${my-config.database.username}
+    password: ${my-config.database.password}
+    jdbc:
+      url: ${my-config.database.url}
+  smallrye-health:
+    root-path: zdravicko
+
+my-config:
+  database:
+    url: jdbc:postgresql://localhost:5432/db
+    username: postgres
+    password: postgres
+    validation-threshold: 10
