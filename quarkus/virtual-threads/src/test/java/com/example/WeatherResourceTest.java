@@ -13,17 +13,25 @@ import static io.restassured.RestAssured.given;
 class WeatherResourceTest {
 
     @Test
-    void testWeatherEndpoint() {
+    void testGetAllWeathers() {
         given()
-          .when().get("/weather")
+                .when().get("/weather")
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    void testGetBetterPlace() {
+        given()
+          .when().get("/weather/better-place")
           .then()
              .statusCode(200);
     }
 
     @Test
-    void testWeatherEndpointViaExecutor() {
+    void testGetBetterPlaceViaExecutor() {
         given()
-                .when().get("/weather/via-executor")
+                .when().get("/weather/better-place/via-executor")
                 .then()
                 .statusCode(200);
     }
