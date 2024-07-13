@@ -1,0 +1,6 @@
+quarkus:
+  rest-client:
+    ip-api:
+      url: http://ip-api.com/json/
+  smallrye-health:
+    root-path: zdravicko
