@@ -1,0 +1,6 @@
+quarkus:
+  hibernate-orm:
+    sql-load-script: test-import.sql
+my-config:
+  key1: test-value-1
+  key2: test-value-2
