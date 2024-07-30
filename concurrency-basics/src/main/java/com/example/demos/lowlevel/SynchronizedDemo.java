@@ -1,26 +1,23 @@
-package com.example;
+package com.example.demos.lowlevel;
 
 import com.example.threadspawner.DirectThreadSpawner;
 
-/**
- * How to make this correctly, see {@link SynchronizedDemo}.
- */
-public class RaceConditionDemo implements Runnable {
+public class SynchronizedDemo implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("***** Race condition demo *****");
+        System.out.println("***** Synchronized demo *****");
 
         // Counter is shared among both threads
-        Counter counter = new Counter();
+        SynchronizedCounter synchronizedCounter = new SynchronizedCounter();
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < 10_000; i++) {
-                counter.increment();
+                synchronizedCounter.increment();
             }
         });
         Thread t2 = new Thread(() -> {
             for (int i = 0; i < 10_000; i++) {
-                counter.decrement();
+                synchronizedCounter.decrement();
             }
         });
 
@@ -30,29 +27,31 @@ public class RaceConditionDemo implements Runnable {
         try {
             t1.join();
             t2.join();
+
             // Counter value should be 0
             // Since we 10 thousand times increment one to the initial value (=0), and then same number of times decrement by one
-            System.out.println("Counter value is: " + counter.value());
+            System.out.println("Counter value is: " + synchronizedCounter.value());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    /**
-     * Dummy version of the counter, which is **not** thread-safe.
-     */
-    private static class Counter {
+    private static class SynchronizedCounter {
         private volatile int value = 0;
 
         public void increment() {
-            value++;
+            changeValueBy(1);
         }
 
         public void decrement() {
-            value--;
+            changeValueBy(-1);
         }
 
-        public int value() {
+        private synchronized void changeValueBy(int offset) {
+            value += offset;
+        }
+
+        public synchronized int value() {
             return value;
         }
     }

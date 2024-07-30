@@ -1,4 +1,4 @@
-package com.example;
+package com.example.demos.lowlevel;
 
 import com.example.threadspawner.DirectThreadSpawner;
 

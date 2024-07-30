@@ -1,12 +1,16 @@
-package com.example;
+package com.example.demos.lowlevel;
 
 import com.example.threadspawner.DirectThreadSpawner;
 
-public class SynchronizedDemo implements Runnable {
+/**
+ * Keyword 'synchronized' doesn't have to be used only in method declaration, but also as part of the method body. In
+ * this case, it acts as a monitor over some {@link Object}.
+ */
+public class SynchronizedDemo2 implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("***** Synchronized demo *****");
+        System.out.println("***** Synchronized demo (used in body) *****");
 
         // Counter is shared among both threads
         SynchronizedCounter synchronizedCounter = new SynchronizedCounter();
@@ -47,8 +51,10 @@ public class SynchronizedDemo implements Runnable {
             changeValueBy(-1);
         }
 
-        private synchronized void changeValueBy(int offset) {
-            value += offset;
+        private void changeValueBy(int offset) {
+            synchronized (this) {
+                value += offset;
+            }
         }
 
         public synchronized int value() {
