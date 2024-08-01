@@ -28,3 +28,11 @@ Little playground around [Java concurrency tutorial](https://docs.oracle.com/jav
   - using default asynchronous execution
 - else if `Executor` one of the method params, provided executor is used
 - otherwise, default execution is used
+
+### Catching of normal values / exceptions in stages by method
+| Normal values | Exceptions | Method           |
+| ------------- | ---------- |------------------|
+|      ❌        |      ❌     | `whenComplete`   |
+|      ❌        |      ✓     | `exceptionally`  |
+|      ✓        |      ❌     | `then*`          |
+|      ✓        |      ✓     | `handle`         |
