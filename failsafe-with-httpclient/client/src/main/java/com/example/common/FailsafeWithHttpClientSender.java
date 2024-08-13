@@ -24,25 +24,20 @@ public class FailsafeWithHttpClientSender implements CallbackSender {
 
     @Override
     public void sendCallback(Callback callback) {
-        try (HttpClient httpClient = HttpClient.newBuilder()
-                .connectTimeout(Duration.of(2, ChronoUnit.SECONDS))
-                .build()) {
-            RetryPolicy<HttpResponse<String>> retryPolicy = RetryPolicy.<HttpResponse<String>>builder()
-                    .withBackoff(1, 16, ChronoUnit.SECONDS)
-                    .withMaxAttempts(8)
-                    .onSuccess(e -> log.info("Callback successfully sent, response: {}", e.getResult()))
-                    .onFailedAttempt(e -> log.warn("Attempt (#{}) failed", e.getAttemptCount()))
-                    .onFailure(e -> log.warn("Failure: {}", e.getResult()))
-                    .build();
+        RetryPolicy<HttpResponse<String>> retryPolicy = RetryPolicy.<HttpResponse<String>> builder()
+                .withBackoff(1, 16, ChronoUnit.SECONDS)
+                .withMaxAttempts(8)
+                .onSuccess(e -> log.info("Callback successfully sent, response: {}", e.getResult()))
+                .onFailedAttempt(e -> log.warn("Attempt (#{}) failed due to: {}", e.getAttemptCount(), e.getLastException().toString()))
+                .onFailure(e -> log.warn("Failure: {}", e.getResult()))
+                .build();
 
-            Failsafe.with(retryPolicy)
-                    .with(executor)
-                    .getAsync(() -> {
-                        log.info("Sending the callback");
-                        return httpClient.send(getNotifyHttpRequest(callback, ""), null);
-                    })
-                    .thenAccept(httpResponse -> log.info("Received: {}", httpResponse));
-        }
+        Failsafe.with(retryPolicy).with(executor).getAsync(() -> {
+            try (HttpClient httpClient = HttpClient.newBuilder().connectTimeout(Duration.of(2, ChronoUnit.SECONDS)).build()) {
+                log.info("Sending the callback");
+                return httpClient.send(getNotifyHttpRequest(callback, ""), HttpResponse.BodyHandlers.ofString());
+            }
+        }).thenAccept(httpResponse -> log.info("Received: {}", httpResponse));
     }
 
     private static HttpRequest getNotifyHttpRequest(Callback callback, String body) {
