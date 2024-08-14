@@ -1,0 +1,7 @@
+quarkus:
+  http:
+    port: 8085
+
+callback-config:
+  retries:
+    backoff-max-delay: 20
