@@ -1,0 +1,5 @@
+app-config:
+  operations:
+    duration:
+      runtime: 20
+      schedule-in: 10
