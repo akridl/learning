@@ -1,0 +1,19 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+"%dev":
+  quarkus:
+    datasource:
+     devservices:
+       image-name: postgres:16.3
+"%prod":
+  quarkus:
+    datasource:
+      # Yeah, big secrets here
+      username: user
+      password: password
+      jdbc:
+        url: 'jdbc:postgresql://localhost:5432/db'
