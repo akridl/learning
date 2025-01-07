@@ -4,11 +4,6 @@ quarkus:
   hibernate-orm:
     database:
       generation: drop-and-create
-"%dev":
-  quarkus:
-    datasource:
-     devservices:
-       image-name: postgres:16.3
 "%prod":
   quarkus:
     datasource:
@@ -17,3 +12,13 @@ quarkus:
       password: password
       jdbc:
         url: 'jdbc:postgresql://localhost:5432/db'
+"%dev":
+  quarkus:
+    datasource:
+     devservices:
+       image-name: postgres:16.3
+"%test":
+  quarkus:
+    datasource:
+      devservices:
+        image-name: postgres:16.3

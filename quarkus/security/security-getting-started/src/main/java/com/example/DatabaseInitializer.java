@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.model.User;
-import io.quarkus.elytron.security.common.BcryptUtil;
 import io.quarkus.runtime.StartupEvent;
 import jakarta.enterprise.event.Observes;
 import jakarta.inject.Singleton;
@@ -18,15 +17,10 @@ public class DatabaseInitializer {
     public void createUsers(@Observes StartupEvent startupEvent) {
         log.info("Adding users into DB");
 
-        createUser("Admin", "admin", List.of("admin,user"));
-        createUser("Alice", "qwerty123", List.of("user"));
-    }
+        var admin = new User("Admin", "admin", List.of("admin", "user"));
+        var alice = new User("Alice", "qwerty123", List.of("user"));
 
-    private static void createUser(String username, String password, List<String> roles) {
-        User user = new User();
-        user.username = username;
-        user.password = BcryptUtil.bcryptHash(password);
-        user.roles = roles;
-        user.persist();
+        admin.add();
+        alice.add();
     }
 }
