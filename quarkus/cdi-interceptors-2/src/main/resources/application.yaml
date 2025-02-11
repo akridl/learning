@@ -1,0 +1,2 @@
+app-config:
+  user-logger-name: 'org.jboss.pnc._userlog_.alignment-log'
