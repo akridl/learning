@@ -1,0 +1,21 @@
+# quarkus.log.handler.console.my-console-handler.format=%d{yyyy-MM-dd HH:mm:ss} [com.example] %s%e%n
+# quarkus.log.category."com.example".handlers=my-console-handler
+# quarkus.log.category."com.example".use-parent-handlers=false
+
+quarkus:
+  log:
+    handler:
+      console:
+        console-handler:
+          enable: true
+      file:
+        file-handler:
+          enable: true
+          path: /tmp/file-log.txt
+    category:
+      "org.jboss.pnc._userlog_":
+        level: DEBUG
+        handlers:
+          - console-handler
+          - file-handler
+        use-parent-handlers: false
