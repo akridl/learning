@@ -15,12 +15,8 @@ import java.util.stream.Stream;
 public class GreetingResource {
 
     @Inject
-    @LiveLogger
+    @UserLogger
     Logger userLogger;
-
-    @Inject
-    @FinalLogger
-    Logger fileLogger;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

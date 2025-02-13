@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.FIELD })
-public @interface FinalLogger {
+public @interface UserLogger {
 
 }
