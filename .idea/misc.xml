@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/jackson/basics/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/flyway/pom.xml" />
+        <option value="$PROJECT_DIR$/jpa-sandbox/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/testing/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/cli-apps/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/security/security-getting-started/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/cdi-intro/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/first-app/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/second-app/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/devservices/wiremock/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/multimodule/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/quarkus-rest/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/hibernate-orm/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/config-mappings/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/smallrye-health/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/virtual-threads/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/cdi-interceptors/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/config-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/cdi-interceptors-2/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/reactive-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/lifecycle-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/rest-json-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/hibernate-orm-panache/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/validation-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/hibernate-orm-with-flyway/pom.xml" />
+        <option value="$PROJECT_DIR$/quarkus/openapi-swaggerui-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/streams/pom.xml" />
+        <option value="$PROJECT_DIR$/kubernetes/probes/pom.xml" />
+        <option value="$PROJECT_DIR$/slf4j-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/concurrency/concurrency-basics/pom.xml" />
+        <option value="$PROJECT_DIR$/concurrency/cancelling-executor-tasks/pom.xml" />
+        <option value="$PROJECT_DIR$/logging-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/design-patterns/pom.xml" />
+        <option value="$PROJECT_DIR$/validation-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/mdc-propagations/pom.xml" />
+        <option value="$PROJECT_DIR$/native-processes/pom.xml" />
+        <option value="$PROJECT_DIR$/logging-internals/pom.xml" />
+        <option value="$PROJECT_DIR$/openapi-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/resttemplate-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/failsafe-with-httpclient/pom.xml" />
+        <option value="$PROJECT_DIR$/person-contact-microservices-demo/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -12,8 +12,8 @@
     <groupId>com.example</groupId>
     <artifactId>jpa-sandbox</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jpa-sandbox</name>
-    <description>jpa-sandbox</description>
+    <name>JPA Sandbox</name>
+    <description>Very minimalistic Spring Boot project for the purpose of playing with JPA + Hibernate</description>
 
     <properties>
         <java.version>21</java.version>
@@ -29,35 +29,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Mapstruct -->
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-
-        <!-- Jakarta Validation implementation -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>8.0.1.Final</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Test dependencies -->
@@ -70,20 +51,7 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>2.2.224</version>
-            <!-- <scope>test</scope> -->
-        </dependency>
-
-        <!-- Code swagger annotations -->
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>2.2.21</version>
-        </dependency>
-        <!-- OpenAPI generation + Swagger integration -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.5.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -106,5 +74,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

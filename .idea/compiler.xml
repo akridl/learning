@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="security-getting-started" />
+        <module name="config-mappings" />
+        <module name="api (1)" />
+        <module name="common (1)" />
+        <module name="logging-internals" />
+        <module name="openapi-swaggerui-quickstart" />
+        <module name="reactive-quickstart" />
+        <module name="person-client-openapi" />
+        <module name="contact" />
+        <module name="api" />
+        <module name="person-server" />
+        <module name="mdc-propagations-client" />
+        <module name="flyway" />
+        <module name="concurrency-basics" />
+        <module name="mdc-propagations-server-rest" />
+        <module name="testing" />
+        <module name="cdi-intro" />
+        <module name="hibernate-orm-with-flyway" />
+        <module name="streams" />
+        <module name="quarkus-rest" />
+        <module name="slf4j-demo" />
+        <module name="lifecycle-quickstart" />
+        <module name="person" />
+        <module name="config-quickstart" />
+        <module name="validation-demo" />
+        <module name="no-main" />
+        <module name="server" />
+        <module name="basics" />
+        <module name="with-main" />
+        <module name="hibernate-orm" />
+        <module name="person-server (1)" />
+        <module name="person-client (1)" />
+        <module name="jpa-sandbox" />
+        <module name="common" />
+        <module name="person-client-resttemplate" />
+        <module name="client" />
+        <module name="probes" />
+        <module name="rest-json-quickstart" />
+        <module name="dto" />
+        <module name="first-app" />
+        <module name="hibernate-orm-panache" />
+        <module name="rest" />
+        <module name="virtual-threads" />
+        <module name="person-client-restclient" />
+        <module name="cdi-interceptors-2" />
+        <module name="smallrye-health" />
+        <module name="contact-client" />
+        <module name="server (1)" />
+        <module name="validation-quickstart" />
+        <module name="logging-demo" />
+        <module name="person-client" />
+        <module name="native-processes" />
+        <module name="client (1)" />
+        <module name="second-app" />
+        <module name="cancelling-executor-tasks" />
+        <module name="cdi-interceptors" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api" options="-parameters" />
+      <module name="api (1)" options="-parameters" />
+      <module name="cancelling-executor-tasks" options="-parameters" />
+      <module name="cdi-interceptors" options="-parameters" />
+      <module name="cdi-interceptors-2" options="-parameters" />
+      <module name="cdi-intro" options="-parameters" />
+      <module name="cli-apps" options="-parameters" />
+      <module name="client" options="-parameters" />
+      <module name="client (1)" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="common (1)" options="-parameters" />
+      <module name="config-mappings" options="-parameters" />
+      <module name="config-quickstart" options="-parameters" />
+      <module name="contact" options="-parameters" />
+      <module name="contact-client" options="-parameters" />
+      <module name="dto" options="-parameters" />
+      <module name="failsafe-with-httpclient" options="-parameters" />
+      <module name="first-app" options="-parameters" />
+      <module name="flyway" options="-parameters" />
+      <module name="hibernate-orm" options="-parameters" />
+      <module name="hibernate-orm-panache" options="-parameters" />
+      <module name="hibernate-orm-with-flyway" options="-parameters" />
+      <module name="jpa-sandbox" options="-parameters" />
+      <module name="lifecycle-quickstart" options="-parameters" />
+      <module name="logging-demo" options="-parameters" />
+      <module name="mdc-propagations-client" options="-parameters" />
+      <module name="mdc-propagations-parent" options="-parameters" />
+      <module name="mdc-propagations-server-rest" options="-parameters" />
+      <module name="no-main" options="-parameters" />
+      <module name="openapi-swaggerui-quickstart" options="-parameters" />
+      <module name="parent" options="-parameters" />
+      <module name="person" options="-parameters" />
+      <module name="person-client" options="-parameters" />
+      <module name="person-client (1)" options="-parameters" />
+      <module name="person-client-openapi" options="-parameters" />
+      <module name="person-client-restclient" options="-parameters" />
+      <module name="person-client-resttemplate" options="-parameters" />
+      <module name="person-server" options="-parameters" />
+      <module name="person-server (1)" options="-parameters" />
+      <module name="probes" options="-parameters" />
+      <module name="quarkus-rest" options="-parameters" />
+      <module name="reactive-quickstart" options="-parameters" />
+      <module name="rest" options="-parameters" />
+      <module name="rest-json-quickstart" options="-parameters" />
+      <module name="second-app" options="-parameters" />
+      <module name="security-getting-started" options="-parameters" />
+      <module name="server" options="-parameters" />
+      <module name="server (1)" options="-parameters" />
+      <module name="smallrye-health" options="-parameters" />
+      <module name="testing" options="-parameters" />
+      <module name="validation-demo" options="-parameters" />
+      <module name="validation-quickstart" options="-parameters" />
+      <module name="virtual-threads" options="-parameters" />
+      <module name="wiremock" options="-parameters" />
+      <module name="with-main" options="-parameters" />
+    </option>
+  </component>
+</project>

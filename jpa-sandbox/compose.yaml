@@ -2,20 +2,22 @@ version: "3.8"
 
 services:
   app:
-    container_name: example-app
+    container_name: app
     build:
       dockerfile: Dockerfile
       context: .
     networks:
       - app-network
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     depends_on:
       app-db:
         condition: service_healthy
   app-db:
-    container_name: example-db
-    image: postgres:15.4
+    container_name: app-db
+    image: postgres:16.8
     volumes:
       - postgres-db:/var/lib/postgres/data
     networks:
@@ -35,4 +37,5 @@ volumes:
 
 networks:
   app-network:
+    name: app-network
     driver: bridge

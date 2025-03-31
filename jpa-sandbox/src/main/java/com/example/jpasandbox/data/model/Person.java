@@ -5,10 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -26,5 +29,6 @@ public class Person implements Serializable {
     private String familyName;
 
     @Column(nullable = false)
-    private int age;
+    @Temporal(TemporalType.DATE)
+    private LocalDate birthday;
 }

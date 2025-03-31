@@ -1,4 +1,4 @@
-FROM maven:3.9.6-eclipse-temurin-21 as build
+FROM maven:3.9.9 as build
 WORKDIR /app
 COPY . .
 RUN mvn clean package
@@ -8,4 +8,8 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 EXPOSE 8080
 COPY --from=build /app/app.jar .
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY target/jpa-sandbox.jar /app/app.jar
+RUN mkdir config/
+COPY etc/ config/
+COPY entrypoint.sh .
+ENTRYPOINT ["./entrypoint.sh"]
