@@ -1,0 +1,6 @@
+quarkus:
+  log:
+    console:
+      category:
+        "com.example":
+          format: '%d{yyyy-MM-dd HH:mm:ss.SS} [%p] %s%e%n'

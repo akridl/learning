@@ -1,3 +1,5 @@
+.idea/
+
 # Plugin directory
 /.quarkus/cli/plugins/
 
