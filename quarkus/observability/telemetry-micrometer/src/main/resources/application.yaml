@@ -1,0 +1,6 @@
+quarkus:
+  micrometer:
+    export:
+      json:
+        enabled: true
+        path: metrics-json
